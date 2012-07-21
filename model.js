@@ -57,6 +57,8 @@ if (Meteor.is_server) {
         Players.insert({name: 'Mike', team_id:1, game_id:1, score:0, picture: 'mike.jpg'});
         Players.insert({name: 'Philippe', team_id:1, game_id:1, score:0, picture: 'philippe.jpg'});
         Players.insert({name: 'Avesta', team_id:2, game_id:1, score:0, picture: 'avesta.jpg'});
+        Players.insert({name: 'Cameron', team_id:2, game_id:1, score:0, picture: 'cameron.jpg'});
+                
      }
 
    });
