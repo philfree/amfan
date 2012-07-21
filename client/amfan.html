@@ -1,0 +1,32 @@
+<head>
+  <title>amfan</title>
+</head>
+
+<body>
+  {{> team_list}}
+</body>
+
+<template name="head_score">
+<h1>{{score}}</h1>
+</template>
+
+<template name="team_list">
+    <h3>Team player scores</h3>
+    <b>Team 1</b><br>
+    {{#each players_team1}}
+      {{> player}}
+    {{/each}}
+
+    <b>Team 2</b><br>
+    {{#each players_team2}}
+      {{> player}}
+    {{/each}}
+</template>
+
+<template name="player">
+  <div class="player {{selected}}">
+    <span class="pic"><img src="{{picture}}" alt="{{name}}" width="100"></span>
+    <span class="name">{{name}}</span>
+    <span class="score">{{score}}</span>
+  </div>
+</template>
