@@ -8,7 +8,8 @@
 	http://localhost:3000/client/amfan.css?3766691e83654b5ab7c8e4f1d576b091902ac7b8
 	http://localhost:3000/client/amfan.css?9d7d3f78172bb5780fbffcb2a0e00aefeb942208
 	http://localhost:3000/client/amfan.css?dda00f9990a3ea36e16b21c0aa2732755a4a1f17
-	http://localhost:3000/client/amfan.css?b051885e1c91b102a87bbca594fcc18fd252a1e0 */
+	http://localhost:3000/client/amfan.css?b051885e1c91b102a87bbca594fcc18fd252a1e0
+	http://localhost:3000/client/amfan.css?e9fa21e3007cdbfc68ff5dd5b65bbb8c29545f95 */
 
 /* CSS declarations go here */
 
@@ -179,8 +180,8 @@ nav.main li.active {
 	float: right;
 	width: 400px;
 	height: 162px;
-	overflow: scroll;
 	padding-right: 20px;
+	background: transparent;
 }
 .plays li {
 	height: 28px;
@@ -312,6 +313,13 @@ input:hover {
 }
 .row_last {
 	margin-right: 0;
+}
+
+.hidden_link {
+	float: right;
+	width: 40px;
+	height: 40px;
+	background-color: transparent;
 }
 
 
