@@ -1,0 +1,150 @@
+
+<body>
+
+  {{> game_activity}}
+
+</body>
+
+<template name="game_activity">
+  {{> score_board}}
+  {{> action_feed}}
+
+  {{> player_selection}}
+
+</template>
+
+<template name="score_board">
+<h1>Score: {{score_team1}}  vs {{score_team2}} </h1>
+
+</template>
+
+<template name="action_feed">
+   <h1>Action Feed</h1>
+   {{#each actions}}
+      {{feed_text}}<br>
+   {{/each}}
+</template>
+
+<template name="player_selection">
+    <h3>Team player scores</h3>
+    <b>Team 1</b><br>
+    {{#if team1_action_is "main"}}
+       {{> main_team1_actions}}
+    {{/if}}
+    {{#if team1_action_is "subaction"}}
+       {{> main_team1_subactions}}
+
+    {{/if}}
+    {{#if team1_action_is "players"}}
+
+		{{#each players_team1}}
+		  {{> player_select}}
+		{{/each}}
+
+    {{/if}}
+
+    <b>Team 2</b><br>
+    {{#if team2_action_is "main"}}
+       {{> main_team1_actions}}
+    {{/if}}
+    {{#if team2_action_is "subaction"}}
+       {{> main_team1_subactions}}
+
+    {{/if}}
+    {{#if team2_action_is "players"}}
+
+
+      {{#each players_team2}}
+        {{> player_select}}
+      {{/each}}
+
+    {{/if}}
+</template>
+
+<template name="main_team2_actions">
+{{#if team2_possession}} 
+ <input type="button" value="Shot" class="shot">
+ <input type="button" value="Rebound" class="reboundp">
+ <input type="button" value="Turnover" class="turnover">
+ <input type="button" value="Foul" class="foul">
+{{else}} 
+ <input type="button" value="Rebound" class="rebound">
+ <input type="button" value="Steal" class="steal">
+ <input type="button" value="Block" class="block">
+ <input type="button" value="Foul" class="foul">
+{{/if}}
+</template>
+
+<template name="main_team1_actions">
+{{#if team1_possession}} 
+ <input type="button" value="Shot" class="shot">
+ <input type="button" value="Rebound" class="reboundp">
+ <input type="button" value="Turnover" class="turnover">
+ <input type="button" value="Foul" class="foul">
+{{else}} 
+ <input type="button" value="Rebound" class="rebound">
+ <input type="button" value="Steal" class="steal">
+ <input type="button" value="Block" class="block">
+ <input type="button" value="Foul" class="foul">
+{{/if}}
+</template>
+
+<template name="main_team1_subactions">
+   Subactions!!!
+        {{#if team1_subaction_is "shot"}} 
+          <input type="button" value="2" class="shot_2">
+          <input type="button" value="2+Assist" class="shot_2_assist">
+          <input type="button" value="3" class="shot_3">
+          <input type="button" value="3+Assist" class="shot_3_assist">
+          <input type="button" value="Miss 2" class="shot_miss_2">
+          <input type="button" value="Miss 3" class="shot_miss_3">
+          <input type="button" value="Free throw made" class="shot_free_throw_made">
+          <input type="button" value="Free throw missed" class="shot_free_throw_missed">
+        {{/if}}
+        {{#if team1_subaction_is "rebound"}}
+          rebound
+        {{/if}}
+        {{#if team1_subaction_is "turnover"}}
+          turnover
+        {{/if}}
+        {{#if team1_subaction_is "foul"}}
+          foul
+        {{/if}}
+</template>
+<template name="main_team2_subactions">
+   Subactions!!!
+        {{#if team1_subaction_is "shot"}} 
+          <input type="button" value="2" class="shot_2">
+          <input type="button" value="2+Assist" class="shot_2_assist">
+          <input type="button" value="3" class="shot_3">
+          <input type="button" value="3+Assist" class="shot_3_assist">
+          <input type="button" value="Miss 2" class="shot_miss_2">
+          <input type="button" value="Miss 3" class="shot_miss_3">
+          <input type="button" value="Free throw made" class="shot_free_throw_made">
+          <input type="button" value="Free throw missed" class="shot_free_throw_missed">
+        {{/if}}
+        {{#if team1_subaction_is "rebound"}}
+          rebound
+        {{/if}}
+        {{#if team1_subaction_is "turnover"}}
+          turnover
+        {{/if}}
+        {{#if team1_subaction_is "foul"}}
+          foul
+        {{/if}}
+</template>
+
+<template name="player_select">
+  <div class="player {{selected}}">
+    <span class="pic"><img src="{{picture}}" alt="{{name}}" width="100"></span>
+    <span class="name">{{name}}</span>
+  </div>
+</template>
+
+<template name="main_action">
+
+</template>
+
+<template name="sub_action">
+
+</template>

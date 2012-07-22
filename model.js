@@ -1,6 +1,6 @@
 ////////// Shared code (client and server) //////////
 
-//Games = new Meteor.Collection('games');
+Games = new Meteor.Collection('games');
 // { clock: 60, teams: [{team_id, name, score}], winners: [team_id] }
 
 //Teams = new Meteor.Collection('teams');
@@ -40,7 +40,14 @@ Meteor.methods({
 		
     }
    
-  }
+  },
+  switch_possession: function () {
+     if(Session.equal("possession", "team1")) {
+		Session.set("possession", "team2");
+     } else {
+		Session.set("possession", "team1");
+     }
+  } 
 });
 
 
@@ -51,6 +58,11 @@ if (Meteor.is_server) {
      Session.set("game_id", 1);
      Session.set("team1_name", "NextSpace");
      Session.set("team2_name", "Coloft"); 
+     Session.set("team1_action", "players");
+     Session.set("team2_action", "players");
+     Session.set("team1_score", 0);
+     Session.set("team2_score", 0);
+     Session.set("posession", "team1");
 
      if (Players.find().count() === 0) {
         Players.insert({name: 'Jared', team_id:1, game_id:1, score: 0, picture: 'jared.jpg'});
@@ -60,6 +72,15 @@ if (Meteor.is_server) {
         Players.insert({name: 'Cameron', team_id:2, game_id:1, score:0, picture: 'cameron.jpg'});
                 
      }
+	 if (Games.find().count() === 0) {
+		var game_id = Games.insert({name:'game1', team1_id:1, team2_id:2, team1_score:2, team2_score:2});
+        Session.set("game_id", game_id);
+        console.log("setting Game New game:"+game_id);
+ 	} else {
+        var game = Games.find({name:'game1'}).fetch()[0];
+        Session.set("game_id", game._id);
+        console.log("setting Game Loading game:"+game._id);
+    }
 
    });
 
@@ -71,9 +92,9 @@ if (Meteor.is_server) {
 //  });
 
   // publish single games
-//  Meteor.publish('games', function (id) {
-//    return Games.find({_id: id});
-//  });
+  Meteor.publish('games', function (id) {
+    return Games.find({_id: id});
+  });
 
   // publish all my words and opponents' words that the server has
   // scored as good.
