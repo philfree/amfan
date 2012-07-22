@@ -102,7 +102,7 @@
     },
     'click input.rebound' : function () {
         Session.set("team1_action", "players");
-        Session.set("possession", "team1");
+        Session.set("possession", "team2");
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'turnover', sub_action:'', feed_text: player.name+' grabbed a rebound', points: 0, fanpoints: 1, date_created: new Date()});
         Players.update(Session.get("selected_player"), {$inc: {fanpoints: 1}});
@@ -121,6 +121,12 @@
         Players.update(Session.get("selected_player"), {$inc: {fanpoints: 1}});
 
     }, 
+    'click input.foul' : function () {
+        Session.set("team1_action", "players");
+        Session.set("possession", "team2");
+        var player = Players.find(Session.get("selected_player")).fetch()[0];
+        Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'foulp', sub_action:'', feed_text: player.name+' committed a foul', points: 0, fanpoints: 0, date_created: new Date()});
+    }
   }
 
   Template.main_team1_subactions.events = {
@@ -279,6 +285,12 @@
         Players.update(Session.get("selected_player"), {$inc: {fanpoints: 1}});
 
     }, 
+    'click input.foul' : function () {
+        Session.set("team2_action", "players");
+        Session.set("possession", "team1");
+        var player = Players.find(Session.get("selected_player")).fetch()[0];
+        Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'foul', sub_action:'', feed_text: player.name+' committed a foul', points: 0, fanpoints: 0, date_created: new Date()});
+    },
   }
 
   Template.main_team2_subactions.events = {
