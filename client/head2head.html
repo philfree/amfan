@@ -1,0 +1,40 @@
+<body>
+
+{{> head_2_head}}
+
+</body>
+
+<template name="head_2_head">
+  {{#if screen_is "head2head"}}
+
+  {{> small_score_board}}
+
+    <h3>Team player scores</h3>
+<div>
+
+    <b>Team 1</b><br>
+    {{#each players_team1}}
+      {{> player}}
+    {{/each}}
+
+    <b>Team 2</b><br>
+    {{#each players_team2}}
+      {{> player}}
+    {{/each}}
+  {{/if}}
+
+</div>
+</template>
+
+<template name="small_score_board">
+<h1>Score: {{score_team1}}  vs {{score_team2}} </h1>
+
+</template>
+
+<template name="player_score">
+  <div class="player {{selected}}">
+    <span class="pic"><img src="{{picture}}" alt="{{name}}" width="100"></span>
+    <span class="name">{{name}}</span>
+    <span class="score">{{score}}</span>
+  </div>
+</template>

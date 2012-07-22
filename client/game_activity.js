@@ -1,13 +1,12 @@
 // Game activity javascript functions
 
-
-
      Session.set("score", 0);
      Session.set("team1_name", "NextSpace");
      Session.set("team2_name", "Coloft"); 
      Session.set("team1_action", "players");
      Session.set("team2_action", "players");
      Session.set("possession", "team1");
+     Session.set("screen", "head2head");
 
 
   Template.player_selection.team1_action_is = function(action) {
@@ -37,6 +36,10 @@
     return Session.equals("selected_player", this._id) ? "selected" : '';
   };
 
+  Template.game_activity.screen_is = function (screen) {
+     return Session.equals("screen", screen);
+  };
+
   Template.player_select.events = {
     'click' : function () {
       // template data, if any, is available in 'this'
@@ -44,7 +47,6 @@
        console.log("You pressed the button on player:"+player.name+" id"+this._id);
        Session.set("selected_player", this._id);
        Session.set("team1_action", "main");
-      
 
     }
   };
@@ -91,6 +93,7 @@
         Session.set("possession", "team2");
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot+2', feed_text: player.name+' made a shot, +2 points', points: 2});
+        Players.update(Session.get("selected_player"), {$inc: {score: points}});
         Games.update({name:'game1'},{$inc: {team1_score: points}});
         //Meteor.flush();
 
@@ -103,6 +106,7 @@
         Session.set("possession", "team2");
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot+2', feed_text: player.name+' made a shot, 2 points assist', points: 2});
+        Players.update(Session.get("selected_player"), {$inc: {score: points}});
         Games.update({name:'game1'},{$inc: {team1_score: points}});
         Meteor.flush();
 	}

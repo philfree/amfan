@@ -6,11 +6,16 @@
 </body>
 
 <template name="game_activity">
+{{#if screen_is "game_activity"}}
+
   {{> score_board}}
   {{> action_feed}}
 
   {{> player_selection}}
 
+  {{my_query}}
+
+{{/if}}
 </template>
 
 <template name="score_board">
@@ -21,27 +26,31 @@
 <template name="action_feed">
    <h1>Action Feed</h1>
    {{#each actions}}
+
       {{feed_text}}<br>
+
    {{/each}}
 </template>
 
 <template name="player_selection">
     <h3>Team player scores</h3>
     <b>Team 1</b><br>
-    {{#if team1_action_is "main"}}
-       {{> main_team1_actions}}
-    {{/if}}
-    {{#if team1_action_is "subaction"}}
-       {{> main_team1_subactions}}
 
-    {{/if}}
     {{#if team1_action_is "players"}}
-
 		{{#each players_team1}}
 		  {{> player_select}}
 		{{/each}}
-
     {{/if}}
+
+    {{#if team1_action_is "main"}}
+       {{> main_team1_actions}}
+    {{/if}}
+
+    {{#if team1_action_is "subaction"}}
+       {{> main_team1_subactions}}
+    {{/if}}
+
+  
 
     <b>Team 2</b><br>
     {{#if team2_action_is "main"}}
