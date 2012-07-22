@@ -1,19 +1,25 @@
 <head>
   <title>AmFan</title>
   <script type="text/javascript" src="//use.typekit.net/qsc5voh.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
 
 <body>
-	
+			
+  {{> container}}
+  
+</body>
+
+<template name="container">
+
 	<header class="main">
 		<div class="inner">
 			<img src="logo.png" alt="amfan scorekeeper logo"/>
 			<nav class="main tk-etica-display">
 				<ul>
 					<li>Setup</li>
-					<li>Live Game</li>
+					<li class="active">Live Game</li>
 					<li>Records</li>
 				</ul>
 			</nav>
@@ -21,32 +27,22 @@
 	</header>
 	
 	<div class="container tk-etica-display">
-	
 		<div class="fl">
-		
 			<div class="team_name 1">
 				<h1  class="tk-league-gothic">Glendale Owls</h1>
 			</div>
-			
 			<div class="clock">
 				<h3 class="gray">2nd Half</h3>
 				<h1>3:34</h1>
 			</div>
-				
 			<div class="team_name 2">
 				<h1 class="tk-league-gothic">Venice Bears</h1>
 			</div>
-			
 			<div class="clear"></div>
-			
 			<div class="team_score 1">58</div>
-			
 			<div class="possession"><span class="larrow active"></span>Possession<span class="rarrow"></span></div>
-			
 			<div class="team_score 2">65</div>
-			
 			<div class="clear"></div>
-		
 		</div>
 	
 		<ul class="plays">
@@ -58,92 +54,24 @@
 	
 		<div class="clear"></div>
 		
-		<div class="team 1 active">
-			<header>
-				<img src="owls.png" alt="glendale owls" />
-				<h3 class="tk-league-gothic">Glendale Owls<span></span></h3>
-			</header>
-			<div class="player">
-				<img src="/lucas_mills.jpg" alt="first last" />
-				<span>18</span>Lucas Mills
-			</div>
-			<div class="player">
-				<img src="/dow_tang.jpg" alt="first last" />
-				<span>95</span>Dow Tang
-			</div>
-			<div class="player">
-				<img src="/marc_nager.jpg" alt="first last" />
-				<span>22</span>Marc Nager
-			</div>
-			<div class="player">
-				<img src="/jared_loson.jpg" alt="first last" />
-				<span>9</span>Jared Loson
-			</div>
-			<div class="player">
-				<img src="/albert_buchman.jpg" alt="first last" />
-				<span>12</span>Albert Buchman
-			</div>
-		</div>
-		
-		<div class="team 2 row_last">
-			<header>
-				<img src="bears.png" alt="venice bears" />
-				<h3 class="tk-league-gothic">Venice Bears<span></span></h3>
-			</header>
-			<div class="player">
-				<img src="/michael_jakab.jpg" alt="first last" />
-				<span>18</span>Michael Jakab
-			</div>
-			<div class="player">
-				<img src="/charles_yawson.jpg" alt="first last" />
-				<span>95</span>Charles Yawson
-			</div>
-			<div class="player">
-				<img src="/jonathan_lane.jpg" alt="first last" />
-				<span>22</span>Jonathan Lane
-			</div>
-			<div class="player">
-				<img src="/phil_larson.jpg" alt="first last" />
-				<span>9</span>Phil Larson
-			</div>
-			<div class="player">
-				<img src="/patrick_britain.jpg" alt="first last" />
-				<span>12</span>Patrick Britain
-			</div>
-		</div>
-		
-		<div class="clear"></div>
-			
-  {{> team_list}}
-  
-	</div>
- 
-</body>
+		{{> game_activity}}
 
-<template name="score-1">  
-  {{alert_message	}}
+</div>
+
 </template>
+
 <template name="head_score">
 <h1>{{score}}</h1>
 </template>
 
 <template name="team_list">
-    <h3>Team player scores</h3>
-    <b>Team 1</b><br>
+
     {{#each players_team1}}
       {{> player}}
     {{/each}}
 
-    <b>Team 2</b><br>
     {{#each players_team2}}
       {{> player}}
     {{/each}}
-</template>
-
-<template name="player">
-  <div class="player {{selected}}">
-    <span class="pic"><img src="{{picture}}" alt="{{name}}" width="100"></span>
-    <span class="name">{{name}}</span>
-    <span class="score">{{score}}</span>
-  </div>
+    
 </template>

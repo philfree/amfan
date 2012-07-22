@@ -133,5 +133,3 @@
   Template.action_feed.actions = function() {
 	 return actions = Actions.find({}, {sort: {_id: -1}});
   }
-
-

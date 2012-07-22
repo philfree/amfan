@@ -1,8 +1,6 @@
-
 <body>
 
-  {{> game_activity}}
-
+  
 </body>
 
 <template name="game_activity">
@@ -36,10 +34,16 @@
 
     {{/if}}
     {{#if team1_action_is "players"}}
-
-		{{#each players_team1}}
-		  {{> player_select}}
-		{{/each}}
+		
+		<div class="team 1 active">
+			<header>
+				<img src="owls.png" alt="glendale owls" />
+				<h2 class="tk-league-gothic">Glendale Owls<span></span></h2>
+			</header>
+			{{#each players_team1}}
+			  {{> player_select}}
+			{{/each}}
+		</div>
 
     {{/if}}
 
@@ -76,11 +80,13 @@
 </template>
 
 <template name="main_team1_actions">
-{{#if team1_possession}} 
- <input type="button" value="Shot" class="shot">
- <input type="button" value="Rebound" class="reboundp">
- <input type="button" value="Turnover" class="turnover">
- <input type="button" value="Foul" class="foul">
+{{#if team1_possession}}
+ <div class="action_menu">
+	 <input type="button" value="Shot" class="shot">
+	 <input type="button" value="Rebound" class="reboundp">
+	 <input type="button" value="Turnover" class="turnover">
+	 <input type="button" value="Foul" class="foul">
+ </div>
 {{else}} 
  <input type="button" value="Rebound" class="rebound">
  <input type="button" value="Steal" class="steal">
@@ -136,8 +142,8 @@
 
 <template name="player_select">
   <div class="player {{selected}}">
-    <span class="pic"><img src="{{picture}}" alt="{{name}}" width="100"></span>
-    <span class="name">{{name}}</span>
+  	<img src="{{picture}}" alt="{{name}}" />
+	<span>{{player_number}}</span>{{name}}
   </div>
 </template>
 
