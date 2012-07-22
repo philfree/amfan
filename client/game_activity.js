@@ -6,7 +6,7 @@
      Session.set("team1_action", "players");
      Session.set("team2_action", "players");
      Session.set("possession", "team1");
-     Session.set("screen", "game_activity");
+     Session.set("screen", "head2head");
 
 
   Template.player_selection.team1_action_is = function(action) {
