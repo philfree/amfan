@@ -6,11 +6,7 @@
 <template name="game_activity">
 {{#if screen_is "game_activity"}}
 
-  {{> score_board}}
-  {{> action_feed}}
   {{> player_selection}}
-
-  {{my_query}}
 
 {{/if}}
 </template>
@@ -20,6 +16,7 @@
 	<div class="possession"><span class="larrow {{> team_1_possession}}"></span>Possession<span class="rarrow {{> team_2_possession}}"></span></div>
 	<div class="team_score 2">{{score_team2}}</div>
 </template>
+
 
 <template name="action_feed">
 	<ul class="plays">
@@ -114,7 +111,6 @@
 </template>
 
 <template name="main_team1_subactions">
-   Subactions!!!
         {{#if team1_subaction_is "shot"}} 
           <input type="button" value="2" class="shot_2">
           <input type="button" value="2+Assist" class="shot_2_assist">
@@ -165,10 +161,3 @@
   </div>
 </template>
 
-<template name="main_action">
-
-</template>
-
-<template name="sub_action">
-
-</template>

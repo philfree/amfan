@@ -14,21 +14,20 @@
 
     <b>Team 1</b><br>
     {{#each players_team1}}
-      {{> player}}
+      {{> player_score}}
     {{/each}}
 
     <b>Team 2</b><br>
     {{#each players_team2}}
-      {{> player}}
+      {{> player_score}}
     {{/each}}
-  {{/if}}
+{{/if}}
 
 </div>
 </template>
 
 <template name="small_score_board">
 <h1>Score: {{score_team1}}  vs {{score_team2}} </h1>
-
 </template>
 
 <template name="player_score">
@@ -38,3 +37,4 @@
     <span class="score">{{score}}</span>
   </div>
 </template>
+
