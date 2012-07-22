@@ -15,7 +15,8 @@
 	http://localhost:3000/client/amfan.css?ca0aeab56675e7acc8838856ee2772293074fac1
 	http://localhost:3000/client/amfan.css?a5be58cff0e9eb0dc28d1b40c152099645f3bca9
 	http://localhost:3000/client/amfan.css?e19361fef05f68e18848e1dff34f21f101272416
-	http://localhost:3000/client/amfan.css?dfac0aa7fc72202d3c4a002a8edc7b6f95559f91 */
+	http://localhost:3000/client/amfan.css?dfac0aa7fc72202d3c4a002a8edc7b6f95559f91
+	http://localhost:3000/client/amfan.css?7b3ffa49767690eabc9c8b049deb277261fe6a4a */
 
 /* CSS declarations go here */
 
@@ -328,6 +329,11 @@ input:hover {
 	width: 40px;
 	height: 40px;
 	background: none;
+}
+
+.hidden_link:hover {
+	background: none;
+	cursor: default;
 }
 
 
