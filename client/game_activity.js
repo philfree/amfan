@@ -6,7 +6,7 @@
      Session.set("team1_action", "players");
      Session.set("team2_action", "players");
      Session.set("possession", "team1");
-     Session.set("screen", "head2head");
+     Session.set("screen", "game_activity");
 
 
   Template.player_selection.team1_action_is = function(action) {
@@ -19,8 +19,7 @@
   Template.player_selection.team2_action_is = function(action) {
       if (Session.get("team2_action") == action) { return true; } else { return false; }
   };
-
-  Template.main_team1_subactions.team2_subaction_is = function(action) {
+  Template.main_team2_subactions.team2_subaction_is = function(action) {
       if (Session.get("team2_subaction") == action) { return true; } else { return false; }
   };
   Template.player_selection.players_team1 = function () {
@@ -52,8 +51,11 @@
        var player = Players.find(this._id).fetch()[0];
        console.log("You pressed the button on player:"+player.name+" id"+this._id);
        Session.set("selected_player", this._id);
-       Session.set("team1_action", "main");
-
+       if (player.team_id === 1) {
+         Session.set("team1_action", "main");
+		} else {
+         Session.set("team2_action", "main");
+		}
     }
   };
 
@@ -273,7 +275,7 @@
         
         var points = 2;
         var fpoints = 2;
-        Session.set("team1_subaction", "");
+        Session.set("team2_subaction", "");
         console.log("Recording shot +"+points);
         Session.set("possession", "team1");
         var player = Players.find(Session.get("selected_player")).fetch()[0];
@@ -300,7 +302,7 @@
         };
 	},
     'click input.shot_3' : function () {
-		Session.set("team1_action", "players");
+		Session.set("team2_action", "players");
         var points = 3;
         var fpoints = 3;
         Session.set("team2_subaction", "");
@@ -315,7 +317,7 @@
 		Session.set("team2_action", "players");
         var points = 3;
         var fpoints = 3;
-        Session.set("team1_subaction", "");
+        Session.set("team2_subaction", "");
         console.log("Recording shot assist +"+points);
         Session.set("possession", "team1");
         var player = Players.find(Session.get("selected_player")).fetch()[0];
@@ -326,8 +328,8 @@
     'click input.shot_miss_2' : function () {
 		Session.set("team2_action", "players");
         var points = 0;
-        var fpoints = 3;
-        Session.set("team1_subaction", "");
+        var fpoints = 0;
+        Session.set("team2_subaction", "");
         console.log("Recording shot assist +"+points);
         Session.set("possession", "team1");
         var player = Players.find(Session.get("selected_player")).fetch()[0];

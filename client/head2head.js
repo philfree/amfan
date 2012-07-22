@@ -20,6 +20,10 @@
       } else { return 0; }
   }
 
+  Template.solo_player.one_player = function () {
+    return Players.find({name:'Lucas Mills'}, {sort: {score: -1, name: 1}});
+  }
+
   Template.head_2_head.players_team1 = function () {
     return Players.find({team_id:1}, {sort: {score: -1, name: 1}});
   };

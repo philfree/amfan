@@ -27,7 +27,7 @@
 </template>
 
 <template name="player_selection">
-		<div class="team 1 active">
+		<div class="team 1 {{active}}">
 			<header>
 				<img src="owls.png" alt="glendale owls" />
 				<h2 class="tk-league-gothic">Glendale Owls<span></span></h2>
@@ -48,28 +48,32 @@
     {{/if}}
 			</div>
 		</div>
-
-    {{#if team2_action_is "main"}}
-       {{> main_team1_actions}}
-    {{/if}}
-
-    {{#if team2_action_is "subaction"}}
-       {{> main_team1_subactions}}
-
-    {{/if}}
-    {{#if team2_action_is "players"}}
 		
-		<div class="team 2">
+		<div class="team 2 {{active}}">
 			<header>
 				<img src="bears.png" alt="venice bears" />
 				<h2 class="tk-league-gothic">Venice Bears<span></span></h2>
 			</header>
+            <div class="player_bg2">
+    {{#if team2_action_is "players"}}
 	      {{#each players_team2}}
 	        {{> player_select}}
 	      {{/each}}
-      </div>
+    {{/if}}
+
+    {{#if team2_action_is "main"}}
+       {{> main_team2_actions}}
+    {{/if}}
+
+    {{#if team2_action_is "subaction"}}
+       {{> main_team2_subactions}}
 
     {{/if}}
+
+            </div>
+      </div>
+
+
 </template>
 
 <template name="main_team2_actions">
@@ -125,7 +129,7 @@
         {{/if}}
 </template>
 <template name="main_team2_subactions">
-        {{#if team1_subaction_is "shot"}} 
+        {{#if team2_subaction_is "shot"}} 
           <input type="button" value="Made 2" class="shot_2 small">
           <input type="button" value="Miss 2" class="shot_miss_2 small">
           <input type="button" value="Made 3" class="shot_3 small">
