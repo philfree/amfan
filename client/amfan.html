@@ -1,14 +1,128 @@
 <head>
-  <title>amfan</title>
-
+  <title>AmFan</title>
+  <script type="text/javascript" src="//use.typekit.net/qsc5voh.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
+
 <body>
-
+	
+	<header class="main">
+		<div class="inner">
+			<img src="logo.png" alt="amfan scorekeeper logo"/>
+			<nav class="main tk-etica-display">
+				<ul>
+					<li>Setup</li>
+					<li>Live Game</li>
+					<li>Records</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	
+	<div class="container tk-etica-display">
+	
+		<div class="fl">
+		
+			<div class="team_name 1">
+				<h1  class="tk-league-gothic">Glendale Owls</h1>
+			</div>
+			
+			<div class="clock">
+				<h3 class="gray">2nd Half</h3>
+				<h1>3:34</h1>
+			</div>
+				
+			<div class="team_name 2">
+				<h1 class="tk-league-gothic">Venice Bears</h1>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div class="team_score 1">58</div>
+			
+			<div class="possession"><span class="larrow active"></span>Possession<span class="rarrow"></span></div>
+			
+			<div class="team_score 2">65</div>
+			
+			<div class="clear"></div>
+		
+		</div>
+	
+		<ul class="plays">
+			<li><span>3:40</span>Charles Yawson<span>, makes 3 pts</span><img src="tw.png" alt="twitter bird" /><img src="fb.png" alt="facebook f"/></li>
+			<li><span>3:38</span>Michael Yakob<span>, Offensive Rebound</span><img src="tw.png" alt="twitter bird" /><img src="fb.png" alt="facebook f"/></li>
+			<li><span>3:11</span>Marc Nager<span>, missed 3pt shot</span><img src="tw.png" alt="twitter bird" /><img src="fb.png" alt="facebook f"/></li>
+			<li><span>3:05</span>Kumar<span>, personal foul</span><img src="tw.png" alt="twitter bird" /><img src="fb.png" alt="facebook f"/></li>
+		</ul>
+	
+		<div class="clear"></div>
+		
+		<div class="team 1 active">
+			<header>
+				<img src="owls.png" alt="glendale owls" />
+				<h3 class="tk-league-gothic">Glendale Owls<span></span></h3>
+			</header>
+			<div class="player">
+				<img src="/lucas_mills.jpg" alt="first last" />
+				<span>18</span>Lucas Mills
+			</div>
+			<div class="player">
+				<img src="/dow_tang.jpg" alt="first last" />
+				<span>95</span>Dow Tang
+			</div>
+			<div class="player">
+				<img src="/marc_nager.jpg" alt="first last" />
+				<span>22</span>Marc Nager
+			</div>
+			<div class="player">
+				<img src="/jared_loson.jpg" alt="first last" />
+				<span>9</span>Jared Loson
+			</div>
+			<div class="player">
+				<img src="/albert_buchman.jpg" alt="first last" />
+				<span>12</span>Albert Buchman
+			</div>
+		</div>
+		
+		<div class="team 2 row_last">
+			<header>
+				<img src="bears.png" alt="venice bears" />
+				<h3 class="tk-league-gothic">Venice Bears<span></span></h3>
+			</header>
+			<div class="player">
+				<img src="/michael_jakab.jpg" alt="first last" />
+				<span>18</span>Michael Jakab
+			</div>
+			<div class="player">
+				<img src="/charles_yawson.jpg" alt="first last" />
+				<span>95</span>Charles Yawson
+			</div>
+			<div class="player">
+				<img src="/jonathan_lane.jpg" alt="first last" />
+				<span>22</span>Jonathan Lane
+			</div>
+			<div class="player">
+				<img src="/phil_larson.jpg" alt="first last" />
+				<span>9</span>Phil Larson
+			</div>
+			<div class="player">
+				<img src="/patrick_britain.jpg" alt="first last" />
+				<span>12</span>Patrick Britain
+			</div>
+		</div>
+		
+		<div class="clear"></div>
+			
   {{> team_list}}
-
+  
+	</div>
+ 
 </body>
 
+<template name="score-1">  
+  {{alert_message	}}
+</template>
 <template name="head_score">
 <h1>{{score}}</h1>
 </template>
