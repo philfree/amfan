@@ -29,6 +29,18 @@
   Template.player_selection.players_team2 = function () {
     return Players.find({team_id:2}, {sort: {score: -1, name: 1}});
   };
+  Template.player_selection.team1_active = function() {
+      return Session.equals("possession", "team1") ? "active" : '';
+  };
+  Template.player_selection.team2_active = function() {
+      return Session.equals("possession", "team2") ? "active" : '';
+  };
+  Template.score_board.team1_active = function() {
+      return Session.equals("possession", "team1") ? "active" : '';
+  };
+  Template.score_board.team2_active = function() {
+      return Session.equals("possession", "team2") ? "active" : '';
+  };
 
   Template.player_selection.events = {
     'click input.close' : function () {
@@ -281,7 +293,7 @@
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot+2', feed_text: player.name+' made a shot, +2 points', points: points, fanpoints: fpoints, date_created: new Date()});
         Players.update(Session.get("selected_player"), {$inc: {score: points, fanpoints: fpoints}});
-        Games.update({name:'game1'},{$inc: {team1_score: points}});
+        Games.update({name:'game1'},{$inc: {team2_score: points}});
         //Meteor.flush();
 
 	},
@@ -298,7 +310,7 @@
 
 		    Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot_2_assist', feed_text: action_text, points: points, fanpoints: fpoints, date_created: new Date()});
 		    Players.update(Session.get("selected_player"), {$inc: {score: points, fanpoints: fpoints}});
-		    Games.update({name:'game1'},{$inc: {team1_score: points}});
+		    Games.update({name:'game1'},{$inc: {team2_score: points}});
         };
 	},
     'click input.shot_3' : function () {
@@ -311,7 +323,7 @@
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot+3', feed_text: player.name+' made a shot, 3 points', points: points, fanpoints:fpoints, date_created: new Date()});
         Players.update(Session.get("selected_player"), {$inc: {score: points, fanpoints: fpoints}});
-        Games.update({name:'game1'},{$inc: {team1_score: points}});
+        Games.update({name:'game1'},{$inc: {team2_score: points}});
 	},
     'click input.shot_3_assist' : function () {
 		Session.set("team2_action", "players");
@@ -323,7 +335,7 @@
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot+3+assist', feed_text: player.name+' made a shot, 3 points assist', points: points, fanpoints: fpoints, date_created: new Date()});
         Players.update(Session.get("selected_player"), {$inc: {score: points, fanpoints: fpoints}});
-        Games.update({name:'game1'},{$inc: {team1_score: points}});
+        Games.update({name:'game1'},{$inc: {team2_score: points}});
 	},
     'click input.shot_miss_2' : function () {
 		Session.set("team2_action", "players");
@@ -335,7 +347,7 @@
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot_miss_2', feed_text: player.name+' missed a 2 points shot', points: points, fanpoints:fpoints, date_created: new Date()});
         Players.update(Session.get("selected_player"), {$inc: {score: points, fanpoints: fpoints}});
-        Games.update({name:'game1'},{$inc: {team1_score: points}});
+        //Games.update({name:'game1'},{$inc: {team2_score: points}});
 	},
     'click input.shot_miss_3' : function () {
 		Session.set("team2_action", "players");
@@ -347,7 +359,7 @@
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot+2', feed_text: player.name+' missed a 3 point shot', points: points, fanpoints:fpoints, date_created: new Date()});
         Players.update(Session.get("selected_player"), {$inc: {score: points, fanpoints: fpoints}});
-        Games.update({name:'game1'},{$inc: {team1_score: points}});
+       // Games.update({name:'game1'},{$inc: {team2_score: points}});
 	},
     'click input.shot_free_throw_made' : function () {
 		Session.set("team2_action", "players");
@@ -359,7 +371,7 @@
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot_free_throw_made', feed_text: player.name+' made a free throw', points: points, fanpoints:fpoints, date_created: new Date()});
         Players.update(Session.get("selected_player"), {$inc: {score: points, fanpoints: fpoints}});
-        Games.update({name:'game1'},{$inc: {team1_score: points}});
+        Games.update({name:'game1'},{$inc: {team2_score: points}});
 	},
     'click input.shot_free_throw_missed' : function () {
 		Session.set("team2_action", "players");
@@ -371,7 +383,7 @@
         var player = Players.find(Session.get("selected_player")).fetch()[0];
         Actions.insert({player_id: Session.get("selected_player"), game_id: 1, action_name: 'shot', sub_action:'shot_free_throw_missed', feed_text: player.name+' missed a free throw',points: points, fanpoints:fpoints, date_created: new Date()});
         Players.update(Session.get("selected_player"), {$inc: {score: points, fanpoints: fpoints}});
-        Games.update({name:'game1'},{$inc: {team1_score: points}});
+        //Games.update({name:'game1'},{$inc: {team2_score: points}});
 	}
 
   }
