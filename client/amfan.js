@@ -13,14 +13,13 @@ if (Meteor.is_client) {
   };
 
   Template.container.events = {
-    'click div.hidden_link' : function () {
+    'click input.hidden_link' : function () {
        if (Session.equals("screen", "head2head")) { 
        	Session.set("screen", "game_activity");
        } else {
 		Session.set("screen", "head2head");
        }
     }
-
   }
 
 }

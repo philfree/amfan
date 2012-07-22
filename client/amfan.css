@@ -9,7 +9,13 @@
 	http://localhost:3000/client/amfan.css?9d7d3f78172bb5780fbffcb2a0e00aefeb942208
 	http://localhost:3000/client/amfan.css?dda00f9990a3ea36e16b21c0aa2732755a4a1f17
 	http://localhost:3000/client/amfan.css?b051885e1c91b102a87bbca594fcc18fd252a1e0
-	http://localhost:3000/client/amfan.css?e9fa21e3007cdbfc68ff5dd5b65bbb8c29545f95 */
+	http://localhost:3000/client/amfan.css?e9fa21e3007cdbfc68ff5dd5b65bbb8c29545f95
+	http://localhost:3000/client/amfan.css?6a887523f8cbf11553c763fa530d4ced55417bc6
+	http://localhost:3000/client/amfan.css?48947509f4b1f951485cb36f8174f9aba1199a48
+	http://localhost:3000/client/amfan.css?ca0aeab56675e7acc8838856ee2772293074fac1
+	http://localhost:3000/client/amfan.css?a5be58cff0e9eb0dc28d1b40c152099645f3bca9
+	http://localhost:3000/client/amfan.css?e19361fef05f68e18848e1dff34f21f101272416
+	http://localhost:3000/client/amfan.css?dfac0aa7fc72202d3c4a002a8edc7b6f95559f91 */
 
 /* CSS declarations go here */
 
@@ -82,7 +88,8 @@ header.main {
 	margin: 0;
 }
 header .inner {
-	width: 1000px;
+	width: 960px;
+	padding: 0 20px;
 	margin: 0 auto;
 	position: relative;
 	height: 47px;
@@ -96,7 +103,7 @@ nav.main ul {
 	position: absolute;
 	width: 340px;
 	top: 0;
-	right: 0;
+	right: 40px;
 	height: 37px;
 	padding-top: 3px;
 	-moz-box-shadow: inset 0px 1px 3px -1px #737373;
@@ -182,6 +189,7 @@ nav.main li.active {
 	height: 162px;
 	padding-right: 20px;
 	background: transparent;
+	overflow: hidden;
 }
 .plays li {
 	height: 28px;
@@ -319,7 +327,7 @@ input:hover {
 	float: right;
 	width: 40px;
 	height: 40px;
-	background-color: transparent;
+	background: none;
 }
 
 
