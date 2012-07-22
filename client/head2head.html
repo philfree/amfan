@@ -8,10 +8,25 @@
 
     {{#if screen_is "head2head"}}
 
-<div>
+	<div class="container tk-etica-display">
+		
+		<div class="team solo 1 active">
+    	<h3>Glendale Owls &nbsp;&nbsp;vs.&nbsp;&nbsp; Venice Bears</h3>
+		
+			<header>
+				<img src="owls.png" alt="glendale owls" />
+				<h2 class="tk-league-gothic">Glendale Owls<span></span></h2>
+			</header>
+			<div class="player_bg">
 	
-
-    {{>solo_player}}
+    			{{>solo_player}}
+    			
+    		</div>
+    	</div>
+    	
+    	{{> action_feed}}
+    	
+    </div>	
 
     
 {{/if}}
@@ -20,7 +35,6 @@
 </template>
 
 	<template name="solo_player">
-    <h1>Mike Kai</h1>
     {{#each one_player}}
 	      {{> player_score}}
     {{/each}}
@@ -30,11 +44,12 @@
 <h1>Score: {{score_team1}}  vs {{score_team2}} </h1>
 </template>
 
+
 <template name="player_score">
   <div class="player {{selected}}">
-    <span class="pic"><img src="{{picture}}" alt="{{name}}" width="100"></span>
-    <span class="name">{{name}}</span>
-    <span class="score">{{score}}</span>
+  	<img src="{{picture}}" alt="{{name}}" />
+	<span>{{player_number}}</span>{{name}}
+	<span class="fr">{{score}} pts</span>
   </div>
 </template>
 
