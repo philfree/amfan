@@ -4,7 +4,8 @@
 	http://localhost:3000/client/amfan.css?23283cac1a560112cc74da87f9f5ad1e54584e71
 	http://localhost:3000/client/amfan.css?23d86e88ef3659de739914b81c9f6a3b39c42e29
 	http://localhost:3000/client/amfan.css?3d536a4f9910769260e00ad05c5d4e3c39e38827
-	http://localhost:3000/client/amfan.css?c481bceb5f22a91980fb8f42f2bbd9a5c298f258 */
+	http://localhost:3000/client/amfan.css?c481bceb5f22a91980fb8f42f2bbd9a5c298f258
+	http://localhost:3000/client/amfan.css?3766691e83654b5ab7c8e4f1d576b091902ac7b8 */
 
 /* CSS declarations go here */
 
@@ -61,10 +62,10 @@ h1, h2, h3, h4 {
 	text-transform: uppercase;
 }
 h1 {
-	font-size: 26px;
+	font-size: 32px;
 }
 h2 {
-	font-size: 22px;
+	font-size: 26px;
 }
 h3 {
 	font-size: 20px;
@@ -175,6 +176,8 @@ nav.main li:hover, nav.main li.active {
 .plays {
 	float: right;
 	width: 420px;
+	height: 162px;
+	overflow: hidden;
 }
 .plays li {
 	height: 28px;
