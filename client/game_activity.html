@@ -28,7 +28,11 @@
 </template>
 
 <template name="player_selection">
-
+		<div class="team 1 active">
+			<header>
+				<img src="owls.png" alt="glendale owls" />
+				<h2 class="tk-league-gothic">Glendale Owls<span></span></h2>
+			</header>
     {{#if team1_action_is "main"}}
        {{> main_team1_actions}}
     {{/if}}
@@ -38,17 +42,13 @@
     {{/if}}
 
     {{#if team1_action_is "players"}}
-		
-		<div class="team 1 active">
-			<header>
-				<img src="owls.png" alt="glendale owls" />
-				<h2 class="tk-league-gothic">Glendale Owls<span></span></h2>
-			</header>
 			{{#each players_team1}}
 			  {{> player_select}}
 			{{/each}}
-		</div>
+
     {{/if}}
+		</div>
+
     {{#if team2_action_is "main"}}
        {{> main_team1_actions}}
     {{/if}}
@@ -96,6 +96,7 @@
 
 <template name="main_team1_actions">
 {{#if team1_possession}}
+
  <div class="action_menu">
 	 <input type="button" value="Shot" class="shot">
 	 <input type="button" value="Rebound" class="reboundp">
@@ -112,6 +113,7 @@
 
 <template name="main_team1_subactions">
         {{#if team1_subaction_is "shot"}} 
+
           <input type="button" value="2" class="shot_2">
           <input type="button" value="2+Assist" class="shot_2_assist">
           <input type="button" value="3" class="shot_3">
@@ -120,6 +122,7 @@
           <input type="button" value="Miss 3" class="shot_miss_3">
           <input type="button" value="Free throw made" class="shot_free_throw_made">
           <input type="button" value="Free throw missed" class="shot_free_throw_missed">
+</div>
         {{/if}}
         {{#if team1_subaction_is "rebound"}}
           rebound
