@@ -6,7 +6,8 @@
 	http://localhost:3000/client/amfan.css?3d536a4f9910769260e00ad05c5d4e3c39e38827
 	http://localhost:3000/client/amfan.css?c481bceb5f22a91980fb8f42f2bbd9a5c298f258
 	http://localhost:3000/client/amfan.css?3766691e83654b5ab7c8e4f1d576b091902ac7b8
-	http://localhost:3000/client/amfan.css?9d7d3f78172bb5780fbffcb2a0e00aefeb942208 */
+	http://localhost:3000/client/amfan.css?9d7d3f78172bb5780fbffcb2a0e00aefeb942208
+	http://localhost:3000/client/amfan.css?dda00f9990a3ea36e16b21c0aa2732755a4a1f17 */
 
 /* CSS declarations go here */
 
@@ -204,6 +205,9 @@ nav.main li.active {
 	width: 465px;
 	margin-right: 30px;
 }
+.team:last-of-type {
+	margin-right: 0;
+}
 .team header {
 	background-image: url("/inactive-team.png");
 	height: 47px;
@@ -238,6 +242,7 @@ nav.main li.active {
 	color: #ccc;
 	font-size: 28px;
 	cursor: pointer;
+	text-align: left;
 }
 .player:hover {
 	background-image: url("/blue_gradient.png");
@@ -251,7 +256,7 @@ nav.main li.active {
 	margin-right: 10px;
 }
 .player_bg {
-	min-height: 300px;
+	min-height: 330px;
 	background: url("/bo_play_pattern.png");
 	text-align: center;
 }

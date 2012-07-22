@@ -5,22 +5,20 @@
 </body>
 
 <template name="head_2_head">
-  {{#if screen_is "head2head"}}
 
-  {{> small_score_board}}
+    {{#if screen_is "head2head"}}
 
-    <h3>Team player scores</h3>
 <div>
-
-    <b>Team 1</b><br>
-    {{#each players_team1}}
-      {{> player_score}}
+	
+	<template name="solo_player">
+    <h1>Mike Kai</h1>
+    {{#each one_player}}
+	      {{> player_score}}
     {{/each}}
+    </template>
 
-    <b>Team 2</b><br>
-    {{#each players_team2}}
-      {{> player_score}}
-    {{/each}}
+
+    
 {{/if}}
 
 </div>
