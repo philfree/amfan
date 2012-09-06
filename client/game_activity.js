@@ -6,7 +6,47 @@
      Session.set("team1_action", "players");
      Session.set("team2_action", "players");
      Session.set("possession", "team1");
-     Session.set("screen", "head2head");
+    // Session.set("screen", "head2head");
+	 Session.set("screen", "game_activity");
+	 Session.set('editing_player', null);
+	 Session.set('setup_mode', false);
+	
+
+////////// Helpers for in-place editing //////////
+// May need to move this somewhere else.
+
+// Returns an event map that handles the "escape" and "return" keys and
+// "blur" events on a text input (given by selector) and interprets them
+// as "ok" or "cancel".
+var okCancelEvents = function (selector, callbacks) {
+  var ok = callbacks.ok || function () {};
+  var cancel = callbacks.cancel || function () {};
+
+  var events = {};
+  events['keyup '+selector+', keydown '+selector+', focusout '+selector] =
+    function (evt) {
+      if (evt.type === "keydown" && evt.which === 27) {
+        // escape = cancel
+        cancel.call(this, evt);
+
+      } else if (evt.type === "keyup" && evt.which === 13 ||
+                 evt.type === "focusout") {
+        // blur/return/enter = ok/submit if non-empty
+        var value = String(evt.target.value || "");
+        if (value)
+          ok.call(this, value, evt);
+        else
+          cancel.call(this, evt);
+      }
+    };
+  return events;
+};
+
+var activateInput = function (input) {
+  input.focus();
+  input.select();
+};
+
 
 
   Template.player_selection.team1_action_is = function(action) {
@@ -42,12 +82,12 @@
       return Session.equals("possession", "team2") ? "active" : '';
   };
 
-  Template.player_selection.events = {
-    'click input.close' : function () {
-       Session.set("team1_action", "players");
-       console.log("clicked on the close button");
-    }
-  } 
+ // Template.player_selection.events = {
+ //   'click input.close' : function () {
+ //      Session.set("team1_action", "players");
+ //      console.log("clicked on the close button");
+ //   }
+ // } 
 
   Template.player_select.selected = function () {
     return Session.equals("selected_player", this._id) ? "selected" : '';
@@ -56,18 +96,28 @@
   Template.game_activity.screen_is = function (screen) {
      return Session.equals("screen", screen);
   };
+  
+  Template.player_select.editing = function () {
+	return Session.equals('editing_player', this._id);
+  };
 
   Template.player_select.events = {
-    'click' : function () {
-      // template data, if any, is available in 'this'
-       var player = Players.find(this._id).fetch()[0];
-       console.log("You pressed the button on player:"+player.name+" id"+this._id);
-       Session.set("selected_player", this._id);
-       if (player.team_id === 1) {
-         Session.set("team1_action", "main");
-		} else {
-         Session.set("team2_action", "main");
-		}
+    'click' : function (evt, tmpl) {
+		  if (Session.equals('setup_mode', false)) {
+		  // template data, if any, is available in 'this'
+		   var player = Players.find(this._id).fetch()[0];
+		   console.log("You pressed the button on player:"+player.name+" id"+this._id);
+		   Session.set("selected_player", this._id);
+		   if (player.team_id === 1) {
+			 Session.set("team1_action", "main");
+			} else {
+			 Session.set("team2_action", "main");
+			}
+		  } else {
+			Session.set('editing_player', this._id);
+			Meteor.flush(); // update DOM before focus
+			activateInput(tmpl.find("#player-input"));
+		 }
     }
   };
 

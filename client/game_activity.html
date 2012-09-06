@@ -143,9 +143,15 @@
 </template>
 
 <template name="player_select">
+	{{#if editing}}
+  <div class="editing">
+   <input type="input" value="{{name}}" id="player-input"/>
+  </div>
+	{{else}}
   <div class="player {{selected}}">
   	<img src="{{picture}}" alt="{{name}}" />
 	<span>{{player_number}}</span>{{name}}
   </div>
+    {{/if}}
 </template>
 

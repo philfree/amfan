@@ -19,7 +19,17 @@ if (Meteor.is_client) {
        } else {
 		Session.set("screen", "head2head");
        }
-    }
+    },
+    
+    'click li.setup' : function () {
+		if (Session.equals('setup_mode', false)) {
+			Session.set('setup_mode', true);
+			console.log("setup_mode set to True");
+		} else {
+			Session.set('setup_mode', false);
+			console.log("setup mode set to False");
+		}
+	}
   }
 
 }
