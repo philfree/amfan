@@ -125,7 +125,8 @@ var activateInput = function (input) {
   '#player-input',
   {
     ok: function (value) {
-      Players.update(this._id, {$set: {name: value}});
+	  var num_name = value.split(",");
+      Players.update(this._id, {$set: {player_number: num_name[0], name: num_name[1]}});
       Session.set('editing_player', null);
     },
     cancel: function () {
