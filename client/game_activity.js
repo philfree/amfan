@@ -101,7 +101,7 @@ var activateInput = function (input) {
 	return Session.equals('editing_player', this._id);
   };
 
-  Template.player_select.events = {
+  Template.player_select.events({
     'click' : function (evt, tmpl) {
 		  if (Session.equals('setup_mode', false)) {
 		  // template data, if any, is available in 'this'
@@ -119,7 +119,19 @@ var activateInput = function (input) {
 			activateInput(tmpl.find("#player-input"));
 		 }
     }
-  };
+  });
+
+  Template.player_select.events(okCancelEvents(
+  '#player-input',
+  {
+    ok: function (value) {
+      Players.update(this._id, {$set: {name: value}});
+      Session.set('editing_player', null);
+    },
+    cancel: function () {
+      Session.set('editing_player', null);
+    }
+  }));
 
 
 /////////////////////////////////////////////////////////////////////////////////

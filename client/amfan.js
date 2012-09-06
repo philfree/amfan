@@ -12,7 +12,7 @@ if (Meteor.is_client) {
      return Session.equals("screen", screen);
   };
 
-  Template.container.events = {
+  Template.container.events({
     'click input.hidden_link' : function () {
        if (Session.equals("screen", "head2head")) { 
        	Session.set("screen", "game_activity");
@@ -30,7 +30,7 @@ if (Meteor.is_client) {
 			console.log("setup mode set to False");
 		}
 	}
-  }
+  });
 
 }
 
