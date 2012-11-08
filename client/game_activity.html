@@ -12,9 +12,25 @@
 </template>
 
 <template name="score_board">
+    		<div class="fl">
+			<div class="team_name 1">
+				<h1  class="tk-league-gothic">{{name_team1}}</h1>
+			</div>
+			<div class="clock">
+				<h3 class="gray">2nd Half</h3>
+				<h1>3:34</h1> 
+			</div> 
+			<div class="team_name 2">
+				<h1 class="tk-league-gothic">{{name_team2}}</h1>
+			</div>
+			<div class="clear"></div>
+        
 	<div class="team_score 1">{{score_team1}}</div>
 	<div class="possession"><span class="larrow {{team1_active}}"></span>Possession<span class="rarrow {{team2_active}}"></span></div>
 	<div class="team_score 2">{{score_team2}}</div>
+    			<div class="clear"></div>
+		</div>
+    
 </template>
 
 
@@ -27,10 +43,12 @@
 </template>
 
 <template name="player_selection">
+{{#if team1}}
+  {{#with team1}} 
 		<div class="team 1 {{team1_active}}">
 			<header>
-				<img src="owls.png" alt="glendale owls" />
-				<h2 class="tk-league-gothic">Glendale Owls<span></span></h2>
+				<img src="{{logo_small}}" alt="{{name}}" />
+				<h2 class="tk-league-gothic">{{name}}<span></span></h2>
 			</header>
 			<div class="player_bg">
     {{#if team1_action_is "main"}}
@@ -48,11 +66,14 @@
     {{/if}}
 			</div>
 		</div>
-		
+  {{/with}}
+{{/if}}
+{{#if team2}}
+  {{#with team2}} 	
 		<div class="team 2 {{team2_active}}">
 			<header>
-				<img src="bears.png" alt="venice bears" />
-				<h2 class="tk-league-gothic">Venice Bears<span></span></h2>
+				<img src="{{logo_small}}" alt="{{name}}" />
+				<h2 class="tk-league-gothic">{{name}}<span></span></h2>
 			</header>
             <div class="player_bg">
     {{#if team2_action_is "players"}}
@@ -72,8 +93,8 @@
 
             </div>
       </div>
-
-
+   {{/with}}
+{{/if}}
 </template>
 
 <template name="main_team2_actions">

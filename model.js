@@ -3,8 +3,8 @@
 Games = new Meteor.Collection('games');
 // { clock: 60, teams: [{team_id, name, score}], winners: [team_id] }
 
-//Teams = new Meteor.Collection('teams');
-// { name: NextSpace, players: [{player_id, name}]
+Teams = new Meteor.Collection('teams');
+// { name: NextSpace, possession: 0, points:0}
 
 Actions = new Meteor.Collection('actions');
 // {player_id: 10, game_id: 123, action_name: 'foul', sub_action:'personal', feed_text: 'Foul on Jared', points: 0}
@@ -51,6 +51,7 @@ Meteor.methods({
 });
 
 
+
 if (Meteor.is_server) {
    Meteor.startup(function() {
 
@@ -63,7 +64,10 @@ if (Meteor.is_server) {
      Session.set("team1_score", 0);
      Session.set("team2_score", 0);
      Session.set("posession", "team1");
-
+     if (Teams.find().count() === 0) {
+         Teams.insert({team_id:1, name: 'Glendale Owls', logo_small: 'owls.png'});
+         Teams.insert({team_id:2, name: 'Venice Bears', logo_small: 'bears.png'});
+     }
      if (Players.find().count() === 0) {
         Players.insert({name: 'Lucas Mills', team_id:1, game_id:1, score: 0, player_number: 18, position: 'guard', picture: 'lucas_mills.jpg', fanpoints:0});
         Players.insert({name: 'Dow Tang', team_id:1, game_id:1, score:0, player_number: 95, position: 'guard', picture: 'dow_tang.jpg', fanpoints:0});
@@ -86,9 +90,15 @@ if (Meteor.is_server) {
         console.log("setting Game Loading game:"+game._id);
     }
 
+    Accounts.loginServiceConfiguration.insert({
+      service: "facebook",
+      appId: "112254545474887",
+      secret: "c4585153e5ac35fc73f880a503142a17"
+    });
+
+
    });
-
-
+ 
 
   // publish all the non-idle players.
 //  Meteor.publish('players', function () {

@@ -18,9 +18,10 @@
 			<img src="logo.png" alt="amfan scorekeeper logo"/>
 			<nav class="main tk-etica-display">
 				<ul>
-					<li class="setup">Setup</li>
+					{{#if currentUser}}<li class="setup">Setup</li>
+                    {{/if}}
 					<li class="active">Live Game</li>
-					<li>Records</li>
+                    <li>{{loginButtons align="right"}}</li>
 				</ul>
 			</nav>
 		</div>
@@ -29,21 +30,8 @@
 	<div class="container tk-etica-display">
 
 {{#if screen_is "game_activity"}}
-		<div class="fl">
-			<div class="team_name 1">
-				<h1  class="tk-league-gothic">Glendale Owls</h1>
-			</div>
-			<div class="clock">
-				<h3 class="gray">2nd Half</h3>
-				<h1>3:34</h1>
-			</div>
-			<div class="team_name 2">
-				<h1 class="tk-league-gothic">Venice Bears</h1>
-			</div>
-			<div class="clear"></div>
-			  {{> score_board}}
-			<div class="clear"></div>
-		</div>
+
+        {{> score_board}}
 	
 		{{> action_feed}}
 	
@@ -64,7 +52,7 @@
 <template name="team_list">
 
     {{#each players_team1}}
-      {{> player}}
+      {{> player}} 
     {{/each}}
 
     {{#each players_team2}}

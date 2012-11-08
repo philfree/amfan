@@ -47,6 +47,12 @@ var activateInput = function (input) {
   input.select();
 };
 
+var getTeamName = function (teamId) {
+    var team = Teams.findOne({team_id: teamId});
+    if (team) { 
+        return team.name;
+    }
+}
 
 
   Template.player_selection.team1_action_is = function(action) {
@@ -486,6 +492,20 @@ var activateInput = function (input) {
       if (game) { 
          return game.team2_score;
       } else { return 0; }
+  }
+  
+  Template.score_board.name_team1 = function() {
+      return getTeamName(1);
+  }
+  Template.score_board.name_team2 = function() {
+      return getTeamName(2);
+  }
+  
+  Template.player_selection.team1 = function() {
+      return Teams.findOne({team_id: 1});
+  }
+  Template.player_selection.team2 = function() {
+      return Teams.findOne({team_id: 2});
   }
 
   Template.action_feed.actions = function() {
