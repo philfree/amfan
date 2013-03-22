@@ -1,6 +1,5 @@
 <body>
 
-  
 </body>
 
 <template name="game_activity">
@@ -12,32 +11,34 @@
 </template>
 
 <template name="score_board">
-    		<div class="fl">
-			<div class="team_name 1">
-				<h1  class="tk-league-gothic">{{name_team1}}</h1>
-			</div>
-			<div class="clock">
-				<h3 class="gray">2nd Half</h3>
-				<h1>3:34</h1> 
-			</div> 
-			<div class="team_name 2">
-				<h1 class="tk-league-gothic">{{name_team2}}</h1>
-			</div>
-			<div class="clear"></div>
-        
-	<div class="team_score 1">{{score_team1}}</div>
-	<div class="possession"><span class="larrow {{team1_active}}"></span>Possession<span class="rarrow {{team2_active}}"></span></div>
-	<div class="team_score 2">{{score_team2}}</div>
-    			<div class="clear"></div>
-		</div>
-    
+    	<div id="score_board" class="cf">
+            <div class="cf">
+                <div class="team_name one">
+                	<h1  class="tk-league-gothic">{{name_team1}}</h1>
+                </div>
+                <div class="clock">
+                	<h3 class="active">1st Half</h3><br />
+                	<h3>2nd Half</h3>
+                	<!--Hiding the clock for now
+                	<h1>3:34</h1> 
+                	-->
+                </div>
+                <div class="team_name two">
+                	<h1 class="tk-league-gothic">{{name_team2}}</h1>
+                </div>
+        	</div>
+        	<div id="score_line" class="cf">
+                <div class="team_score one">{{score_team1}}</div>
+                <span class="larrow {{team1_active}}"></span>Possession<span class="rarrow {{team2_active}}"></span>
+                <div class="team_score two">{{score_team2}}</div>
+            </div>
+        </div>
 </template>
-
 
 <template name="action_feed">
 	<ul class="plays">
    {{#each actions}}
-      <li><span>3:40</span>{{feed_text}}<img src="tw.png" alt="twitter bird" /><img src="fb.png" alt="facebook f"/></li>
+      <li><span class="play_text">{{feed_text}}</span><span class="nav_button small delete_action"></span><span id="tw" class="nav_button small"></span><span id="fb" class="nav_button small"></span></li>
    {{/each}}
    </ul>
 </template>
@@ -45,10 +46,11 @@
 <template name="player_selection">
 {{#if team1}}
   {{#with team1}} 
-		<div class="team 1 {{team1_active}}">
+		<div class="team one {{team1_active}}">
 			<header>
 				<img src="{{logo_small}}" alt="{{name}}" />
-				<h2 class="tk-league-gothic">{{name}}<span></span></h2>
+				<h2 class="tk-league-gothic editable">{{name}}</h2>
+				<div class="possession_ball"></div>
 			</header>
 			<div class="player_bg">
     {{#if team1_action_is "main"}}
@@ -63,6 +65,78 @@
 			{{#each players_team1}}
 			  {{> player_select}}
 			{{/each}}
+			 <div class="out player dark_gray">
+              	<img src="lucas_mills.jpg" alt="lucas mills" />
+            	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+            	<ul class="player_stats">
+            	   <li>5 pts</li>
+            	   <li>2 fouls</li>
+            	</ul>
+              </div>
+              <div class="out player dark_gray">
+              	<img src="lucas_mills.jpg" alt="lucas mills" />
+            	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+            	<ul class="player_stats">
+            	   <li>5 pts</li>
+            	   <li>2 fouls</li>
+            	</ul>
+              </div>
+              <div class="out player dark_gray">
+              	<img src="lucas_mills.jpg" alt="lucas mills" />
+            	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+            	<ul class="player_stats">
+            	   <li>5 pts</li>
+            	   <li>2 fouls</li>
+            	</ul>
+              </div>
+              <div class="out player dark_gray">
+              	<img src="lucas_mills.jpg" alt="lucas mills" />
+            	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+            	<ul class="player_stats">
+            	   <li>5 pts</li>
+            	   <li>2 fouls</li>
+            	</ul>
+              </div>
+              <div class="out player dark_gray">
+              	<img src="lucas_mills.jpg" alt="lucas mills" />
+            	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+            	<ul class="player_stats">
+            	   <li>5 pts</li>
+            	   <li>2 fouls</li>
+            	</ul>
+              </div>
+              <div class="out player dark_gray">
+              	<img src="lucas_mills.jpg" alt="lucas mills" />
+            	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+            	<ul class="player_stats">
+            	   <li>5 pts</li>
+            	   <li>2 fouls</li>
+            	</ul>
+              </div>
+              <div class="out player dark_gray">
+              	<img src="lucas_mills.jpg" alt="lucas mills" />
+            	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+            	<ul class="player_stats">
+            	   <li>5 pts</li>
+            	   <li>2 fouls</li>
+            	</ul>
+              </div>
+              <div class="out player dark_gray">
+              	<img src="lucas_mills.jpg" alt="lucas mills" />
+            	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+            	<ul class="player_stats">
+            	   <li>5 pts</li>
+            	   <li>2 fouls</li>
+            	</ul>
+              </div>
+              <div class="out player dark_gray">
+              	<img src="lucas_mills.jpg" alt="lucas mills" />
+            	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+            	<ul class="player_stats">
+            	   <li>5 pts</li>
+            	   <li>2 fouls</li>
+            	</ul>
+              </div>
     {{/if}}
 			</div>
 		</div>
@@ -70,16 +144,33 @@
 {{/if}}
 {{#if team2}}
   {{#with team2}} 	
-		<div class="team 2 {{team2_active}}">
+		<div class="team two {{team2_active}}">
 			<header>
 				<img src="{{logo_small}}" alt="{{name}}" />
-				<h2 class="tk-league-gothic">{{name}}<span></span></h2>
+				<h2 class="tk-league-gothic editable">{{name}}</h2>
+				<div class="possession_ball"></div>
 			</header>
             <div class="player_bg">
     {{#if team2_action_is "players"}}
 	      {{#each players_team2}}
 	        {{> player_select}}
 	      {{/each}}
+	      <div class="out player dark_gray">
+          	<img src="lucas_mills.jpg" alt="lucas mills" />
+        	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+        	<ul class="player_stats">
+        	   <li>5 pts</li>
+        	   <li>2 fouls</li>
+        	</ul>
+          </div>
+          <div class="out player dark_gray">
+          	<img src="lucas_mills.jpg" alt="lucas mills" />
+        	<span class="player_number">33</span><span class="player_name editable">Name of Player</span>
+        	<ul class="player_stats">
+        	   <li>5 pts</li>
+        	   <li>2 fouls</li>
+        	</ul>
+          </div>
     {{/if}}
 
     {{#if team2_action_is "main"}}
@@ -99,16 +190,17 @@
 
 <template name="main_team2_actions">
 {{#if team2_possession}} 
- <input type="button" value="Shot" class="shot">
- <input type="button" value="Rebound" class="reboundp">
- <input type="button" value="Turnover" class="turnover">
- <input type="button" value="Foul" class="foul">
+ <input type="button" value="Shot" class="green shot">
+ <input type="button" value="Rebound" class="green reboundp">
+ <input type="button" value="Turnover" class="green turnover">
+ <input type="button" value="Foul" class="green foul">
 {{else}} 
- <input type="button" value="Rebound" class="rebound">
- <input type="button" value="Steal" class="steal">
- <input type="button" value="Block" class="block">
- <input type="button" value="Foul" class="foul">
+ <input type="button" value="Rebound" class="green rebound">
+ <input type="button" value="Steal" class="green steal">
+ <input type="button" value="Block" class="green block">
+ <input type="button" value="Foul" class="green foul">
 {{/if}}
+ <input type="button" value="Cancel" class="cancel">
 </template>
 
 <template name="team_1_possession">
@@ -121,57 +213,64 @@
 
 <template name="main_team1_actions">
 {{#if team1_possession}}
-
- <div class="action_menu">
-	 <input type="button" value="Shot" class="shot">
-	 <input type="button" value="Rebound" class="reboundp">
-	 <input type="button" value="Turnover" class="turnover">
-	 <input type="button" value="Foul" class="foulp">
- </div>
+ <input type="button" value="Shot" class="green shot">
+ <input type="button" value="Rebound" class="green reboundp">
+ <input type="button" value="Turnover" class="green turnover">
+ <input type="button" value="Foul" class="green foulp">
 {{else}} 
- <input type="button" value="Rebound" class="rebound">
- <input type="button" value="Steal" class="steal">
- <input type="button" value="Block" class="block">
- <input type="button" value="Foul" class="foul">
+ <input type="button" value="Rebound" class="green rebound">
+ <input type="button" value="Steal" class="green steal">
+ <input type="button" value="Block" class="green block">
+ <input type="button" value="Foul" class="green foul">
 {{/if}}
+ <input type="button" value="Cancel" class="cancel">
 </template>
 
 <template name="main_team1_subactions">
-        {{#if team1_subaction_is "shot"}} 
-		  <input type="button" value="Made 2" class="shot_2 small">
-          <input type="button" value="Miss 2" class="shot_miss_2 small">
-          <input type="button" value="Made 3" class="shot_3 small">
-          <input type="button" value="Miss 3" class="shot_miss_3 small">
-          <input type="button" value="Made 2+Assist" class="shot_2_assist small">
-          <input type="button" value="Made 3+Assist" class="shot_3_assist small">          
-          <input type="button" value="Made Free Throw" class="shot_free_throw_made small">
-          <input type="button" value="Missed Free Throw" class="shot_free_throw_missed small">
-
-        {{/if}}
+    {{#if team1_subaction_is "shot"}} 
+	  <input type="button" value="Made 2" class="green shot_2 small">
+      <input type="button" value="Miss 2" class="green shot_miss_2 small">
+      <input type="button" value="Made 3" class="green shot_3 small">
+      <input type="button" value="Miss 3" class="green shot_miss_3 small">
+      <input type="button" value="Made 2+Assist" class="green shot_2_assist small">
+      <input type="button" value="Made 3+Assist" class="green shot_3_assist small">          
+      <input type="button" value="Made Free Throw" class="green shot_free_throw_made small">
+      <input type="button" value="Missed Free Throw" class="green shot_free_throw_missed small">
+    {{/if}}
+    <input type="button" value="Cancel" class="cancel">
 </template>
 <template name="main_team2_subactions">
-        {{#if team2_subaction_is "shot"}} 
-          <input type="button" value="Made 2" class="shot_2 small">
-          <input type="button" value="Miss 2" class="shot_miss_2 small">
-          <input type="button" value="Made 3" class="shot_3 small">
-          <input type="button" value="Miss 3" class="shot_miss_3 small">
-          <input type="button" value="Made 2+Assist" class="shot_2_assist small">
-          <input type="button" value="Made 3+Assist" class="shot_3_assist small">          
-          <input type="button" value="Made Free Throw" class="shot_free_throw_made small">
-          <input type="button" value="Missed Free Throw" class="shot_free_throw_missed small">
-        {{/if}}
-
+    {{#if team2_subaction_is "shot"}} 
+      <input type="button" value="Made 2" class="green shot_2 small">
+      <input type="button" value="Miss 2" class="green shot_miss_2 small">
+      <input type="button" value="Made 3" class="green shot_3 small">
+      <input type="button" value="Miss 3" class="green shot_miss_3 small">
+      <input type="button" value="Made 2+Assist" class="green shot_2_assist small">
+      <input type="button" value="Made 3+Assist" class="green shot_3_assist small">          
+      <input type="button" value="Made Free Throw" class="green shot_free_throw_made small">
+      <input type="button" value="Missed Free Throw" class="green shot_free_throw_missed small">
+    {{/if}}
+    <input type="button" value="Cancel" class="cancel">
 </template>
 
 <template name="player_select">
 	{{#if editing}}
-  <div class="editing">
-   <input type="input" value="{{player_number}}, {{name}}" id="player-input"/>
+  <div class="player dark_gray editing">
+   <img src="{{picture}}" alt="{{name}}" />
+   <div class="input_container"><input type="input" value="{{player_number}}, {{name}}" id="player-input"/></div>
+   <ul class="player_stats">
+	   <li>{{score}} pts</li>
+	   <li>2 fouls</li>
+	</ul>
   </div>
 	{{else}}
-  <div class="player {{selected}}">
+  <div class="player dark_gray {{selected}}">
   	<img src="{{picture}}" alt="{{name}}" />
-	<span>{{player_number}}</span>{{name}}
+	<span class="player_number">{{player_number}}</span><span class="player_name editable">{{name}}</span>
+	<ul class="player_stats">
+	   <li>{{score}} pts</li>
+	   <li>2 fouls</li>
+	</ul>
   </div>
     {{/if}}
 </template>

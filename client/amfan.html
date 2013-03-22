@@ -4,59 +4,326 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
-
 <body>
-
   {{> container}}
-  
 </body>
 
 <template name="container">
-	<header class="main">
-		<input type="button" class="hidden_link" href="#" />
-		<div class="inner">
-			<img src="logo.png" alt="amfan scorekeeper logo"/>
-			<nav class="main tk-etica-display">
-				<ul>
-					{{#if currentUser}}<li class="setup">Setup</li>
-                    {{/if}}
-					<li class="active">Live Game</li>
-                    <li>{{loginButtons align="right"}}</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	
-	<div class="container tk-etica-display">
-
-{{#if screen_is "game_activity"}}
-
-        {{> score_board}}
-	
-		{{> action_feed}}
-	
-		<div class="clear"></div>
-
-		{{> game_activity}}
-{{/if}}
-</div>
-
+        <div id="slide_menu" class="tk-etica-display">
+            <ul>
+                {{#if currentUser}}
+        		  <li>Account</li>
+        		  <li>League Schedule</li>
+                {{else}}
+                    {{loginButtons}}
+                {{/if}}
+                <li>New Quick Play Game</li>
+                <li>Previous Games</li>
+            </ul>
+        </div>
+        <div id="main_content">
+            <a href="#" class="screen"></a>
+        	<header class="main cf">
+        		<!--Hiding the hidden link for now
+        		<input type="button" class="hidden_link" href="#" />-->
+                <img src="logo.png" alt="amfan scorekeeper logo"/>
+                <a href="#main_content" class="nav_button" id="nav_toggle">&#9776;</a>
+                <div class="nav_button" id="stats"></div>
+                <div class="nav_button" id="edit"></div>
+                <div class="nav_button" id="game"></div>
+        	</header>
+        	<div class="container tk-etica-display cf scorekeeper">
+            	<div id="stats_board">
+                    <h1>Stats Board</h1>
+                    <h2>Team 1</h2>
+                    <table>
+                        <thead>
+                            <td>Player</td>
+                            <td>fg-a</td>
+                            <td>3pm-a</td>
+                            <td>ft-a</td>
+                            <td>reb(o)</td>
+                            <td>ast</td>
+                            <td>steal</td>
+                            <td>blk</td>
+                            <td>to</td>
+                            <td>pf</td>
+                            <td>pts</td>
+                        </thead>
+                        <tr>
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr class="sub">
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr class="sub">
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr class="sub">
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr class="totals">
+                            <td>Totals</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                    </table>
+                    <h2>Team 2</h2>
+                    <table>
+                        <thead>
+                            <td>Player</td>
+                            <td>fg-a</td>
+                            <td>3pm-a</td>
+                            <td>ft-a</td>
+                            <td>reb(o)</td>
+                            <td>ast</td>
+                            <td>steal</td>
+                            <td>blk</td>
+                            <td>to</td>
+                            <td>pf</td>
+                            <td>pts</td>
+                        </thead>
+                        <tr>
+                            <td>Jared Michael Longishname</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr class="sub">
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr class="sub">
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr class="sub">
+                            <td>Jared Loson</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                        <tr class="totals">
+                            <td>Totals</td>
+                            <td>7-12</td>
+                            <td>1-3</td>
+                            <td>3-4</td>
+                            <td>5(2)</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>18</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="flip_container">
+                {{#if screen_is "game_activity"}}
+                {{> score_board}}
+            	{{> action_feed}}
+            	<div class="clear"></div>
+            	{{> game_activity}}
+                {{/if}}
+                </div>
+            </div>
+            <div id="sub" class="button blue"><span>Substitute/View Rosters</span></div>
+        </div>
 </template>
 
-
-
 <template name="head_score">
-<h1>{{score}}</h1>
+    <h1>{{score}}</h1>
 </template>
 
 <template name="team_list">
-
     {{#each players_team1}}
       {{> player}} 
     {{/each}}
-
     {{#each players_team2}}
       {{> player}}
     {{/each}}
-    
 </template>
