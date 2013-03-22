@@ -1,16 +1,20 @@
 // Game activity javascript functions
 
-     Session.set("score", 0);
-     Session.set("team1_name", "NextSpace");
-     Session.set("team2_name", "Coloft"); 
-     Session.set("team1_action", "players");
-     Session.set("team2_action", "players");
-     Session.set("possession", "team1");
     // Session.set("screen", "head2head");
 	 Session.set("screen", "game_activity");
 	 Session.set('editing_player', null);
 	 Session.set('setup_mode', false);
-	
+	 Session.setDefault("game_id", game._id);
+    //Session.setDefault("game_id", 1);     
+     Session.setDefault("score", 0);
+
+     Session.setDefault("team1_name", "NextSpace");
+     Session.setDefault("team2_name", "Coloft"); 
+     Session.setDefault("team1_action", "players");
+     Session.setDefault("team2_action", "players");
+     Session.setDefault("team1_score", 0);
+     Session.setDefault("team2_score", 0);
+     Session.setDefault("posession", "team1");
 
 ////////// Helpers for in-place editing //////////
 // May need to move this somewhere else.
