@@ -4,8 +4,8 @@
 	 Session.set("screen", "game_activity");
 	 Session.set('editing_player', null);
 	 Session.set('setup_mode', false);
-	 Session.setDefault("game_id", game._id);
-    //Session.setDefault("game_id", 1);     
+	// Session.setDefault("game_id", game._id);
+     Session.setDefault("game_id", 1);     
      Session.setDefault("score", 0);
 
      Session.setDefault("team1_name", "NextSpace");
