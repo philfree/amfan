@@ -1,10 +1,12 @@
 if (Meteor.is_client) {
 
   Template.team_list.players_team1 = function () {
-    return Players.find({team_id:1}, {sort: {score: -1, name: 1}});
+    var team1_id = Session.get('team1_id');
+    console.log('player list team1_id:'+team1_id);
+    return Players.find({_id:team1_id}, {sort: {score: -1, name: 1}});
   };
   Template.team_list.players_team2 = function () {
-    return Players.find({team_id:2}, {sort: {score: -1, name: 1}});
+    return Players.find({_id:Session.get('team2_id')}, {sort: {score: -1, name: 1}});
   };
 
 
@@ -69,5 +71,5 @@ if (Meteor.is_client) {
 
 }
 
-
-Session.set("team2_action", "players");
+// commenting not sure its used
+//Session.set("team2_action", "players");
